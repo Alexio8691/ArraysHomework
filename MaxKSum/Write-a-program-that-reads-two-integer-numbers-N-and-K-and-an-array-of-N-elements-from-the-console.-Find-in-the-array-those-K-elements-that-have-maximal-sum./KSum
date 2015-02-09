@@ -1,0 +1,50 @@
+/*Write a program that reads two integer numbers N and K and an array of N elements from the console.
+Find in the array those K elements that have maximal sum.*/
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _06.MaxKSum
+{
+    class MaxKSum
+    {
+        static void Main()
+        {
+         
+        Console.WriteLine("Enter N:");
+        int  nNumber = int.Parse(Console.ReadLine());
+         Console.WriteLine("Enter K:");
+         int kNumber = int.Parse(Console.ReadLine());
+
+
+         int[] array = new int[nNumber];
+         int S = 0;
+         int biggestSum = 0;
+         int elementSum=0;
+
+         for (int index = 0; index <array.Length; index++)
+         {
+             array[index] = int.Parse(Console.ReadLine());
+         }
+         Array.Sort(array);//Сортиране на елементите. Така на едно място се събират елементите, чиято сума би била най-голяма
+
+         for (int index = array.Length-1; index >array.Length-kNumber-1; index--)//цикълът върти от последния елемент до kNumber-1
+         {
+             S += array[index];
+             if(index==array.Length-2-kNumber)
+             {
+                 Console.Write("=");
+             }
+             else
+             {
+                 Console.Write("+");
+             }
+            
+         }
+         Console.WriteLine(S);
+         }
+        }
+    }
